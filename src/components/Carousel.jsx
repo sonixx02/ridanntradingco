@@ -41,25 +41,28 @@ const Carousel = ({ slides }) => {
       >
         {slides?.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className={`w-full h-full bg-gradient-to-br ${slide.backgroundGradient} flex items-center justify-center relative`}>
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white/30 rounded-full"></div>
-                <div className="absolute top-32 right-20 w-16 h-16 border-2 border-white/20 rounded-full"></div>
-                <div className="absolute bottom-20 left-32 w-24 h-24 border-2 border-white/25 rounded-full"></div>
-                <div className="absolute bottom-32 right-10 w-12 h-12 border-2 border-white/20 rounded-full"></div>
-              </div>
-
+            <div className="w-full h-full flex items-center justify-center relative">
+              {/* Slide Image as Background */}
+              {slide.image && (
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                  draggable="false"
+                />
+              )}
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 bg-black/50 z-10" />
               {/* Content */}
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-20">
                 <div className="max-w-4xl mx-auto">
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
                     {slide.title}
                   </h1>
-                  <p className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 text-white/90">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 text-white/90 drop-shadow">
                     {slide.subtitle}
                   </p>
-                  <p className="text-lg sm:text-xl mb-8 text-white/80 max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-lg sm:text-xl mb-8 text-white/80 max-w-3xl mx-auto leading-relaxed drop-shadow">
                     {slide.description}
                   </p>
                   <Button
@@ -87,15 +90,7 @@ const Carousel = ({ slides }) => {
         <Icon name="ChevronRight" size={24} className="text-white" />
       </div>
 
-      {/* Custom Pagination */}
-      <div className="swiper-pagination absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
-        {slides?.map((_, index) => (
-          <div
-            key={index}
-            className="w-3 h-3 rounded-full bg-white/40 cursor-pointer transition-colors hover:bg-white/60"
-          />
-        ))}
-      </div>
+  {/* Swiper's built-in pagination will be used. */}
     </div>
   );
 };

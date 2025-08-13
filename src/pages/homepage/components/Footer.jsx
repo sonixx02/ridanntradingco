@@ -21,8 +21,8 @@ const Footer = () => {
 
   const socialLinks = [
     { name: "LinkedIn", icon: "Linkedin", href: "#" },
-    { name: "Twitter", icon: "Twitter", href: "#" },
-    { name: "Facebook", icon: "Facebook", href: "#" }
+    { name: "Instagram", icon: "Instagram", href: "https://www.instagram.com/ridaantradingco?igsh=eG9ocXV5Y2x6a3Uz"},
+    { name: "Facebook", icon: "Facebook", href: "https://www.facebook.com/share/1C5EK6Hd6G/" }
   ];
 
   return (
